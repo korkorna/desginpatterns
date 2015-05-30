@@ -8,6 +8,11 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+    	PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
+    	DinerMenu dinerMenu = new DinerMenu();
+    	boolean vegetrian = false;
+    	
+        Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu, vegetrian);
+        waitress.printMenu();
     }
 }
