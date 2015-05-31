@@ -2,6 +2,7 @@ package my.designpatterns.iterator;
 
 import java.util.Iterator;
 
+@Deprecated
 public class DinerMenu implements Menu{
 	private static final int MAX_ITMES = 6;
 	private MenuItem[] menuItems;

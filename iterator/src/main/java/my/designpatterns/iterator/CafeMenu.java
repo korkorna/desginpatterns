@@ -3,6 +3,7 @@ package my.designpatterns.iterator;
 import java.util.Hashtable;
 import java.util.Iterator;
 
+@Deprecated
 public class CafeMenu implements Menu{
 	private Hashtable menuItems = new Hashtable();
 
