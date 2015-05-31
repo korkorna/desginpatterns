@@ -1,39 +1,40 @@
 package my.designpatterns.iterator;
 
-import java.util.ArrayList;
 
 public class Waitress {
-	private ArrayList<MenuItem> breakfastMenu;
-	private MenuItem[] dinerMenu;
+	private PancakeHouseMenu breakfastMenu;
+	private DinerMenu dinerMenu;
 	private boolean vegetrian;
 	
 	public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu,
 			boolean vegetrian) {
 		super();
-		this.breakfastMenu = pancakeHouseMenu.getMenuItems();
-		this.dinerMenu = dinerMenu.getMenuItems();
+		this.breakfastMenu = pancakeHouseMenu;
+		this.dinerMenu = dinerMenu;
 		this.vegetrian = vegetrian;
 	}
 
 	public void printMenu() {
-		printBreakfastMenu();
-		printDinnerMenu();
+		Iterator breakfastMenuIt = breakfastMenu.createIterator();
+		Iterator dinerMenuIt = dinerMenu.createIterator();
+		System.out.println("메뉴\n-----\n아침 메뉴");
+		printBreakfastMenu(breakfastMenuIt);
+		System.out.println("\n저녁 메뉴");
+		printDinnerMenu(dinerMenuIt);
 	}
 	
-	public void printBreakfastMenu() {
-		for (int i = 0; i < breakfastMenu.size(); i++) {
-			MenuItem menuItem = breakfastMenu.get(i);
+	public void printBreakfastMenu(Iterator breakfastMenu) {
+		while(breakfastMenu.hasNext()){
+			MenuItem menuItem = (MenuItem) breakfastMenu.next();
 			System.out.print(menuItem.getName() + " ");
 			System.out.println(menuItem.getPrice() + " ");
 			System.out.println(menuItem.getDecription());
 		}
 	}
 	
-	public void printDinnerMenu() {
-		for (int i = 0; i < dinerMenu.length; i++) {
-			MenuItem menuItem = dinerMenu[i];
-		
-			if(menuItem == null) continue;
+	public void printDinnerMenu(Iterator dinerMenu) {
+		while(dinerMenu.hasNext()){
+			MenuItem menuItem = (MenuItem) dinerMenu.next();
 			System.out.print(menuItem.getName() + " ");
 			System.out.println(menuItem.getPrice() + " ");
 			System.out.println(menuItem.getDecription());
@@ -41,7 +42,26 @@ public class Waitress {
 	}
 	
 	public void printVegetarianMenu() {
+		Iterator breakfastMenuIt = breakfastMenu.createIterator();
+		Iterator dinerMenuIt = dinerMenu.createIterator();
 		
+		while(breakfastMenuIt.hasNext()){
+			MenuItem menuItem = (MenuItem) breakfastMenuIt.next();
+			if(menuItem.isVegetarian()){
+				System.out.print(menuItem.getName() + " ");
+				System.out.println(menuItem.getPrice() + " ");
+				System.out.println(menuItem.getDecription());
+			}
+		}
+		
+		while(dinerMenuIt.hasNext()){
+			MenuItem menuItem = (MenuItem) dinerMenuIt.next();
+			if(menuItem.isVegetarian()){
+				System.out.print(menuItem.getName() + " ");
+				System.out.println(menuItem.getPrice() + " ");
+				System.out.println(menuItem.getDecription());
+			}
+		}
 	}
 	
 	public boolean isVegetarian() {

@@ -13,6 +13,9 @@ public class App
     	boolean vegetrian = false;
     	
         Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu, vegetrian);
+        System.out.println(">>>전체 메뉴<<<");
         waitress.printMenu();
+        System.out.println(">>>채식 메뉴<<<");
+        waitress.printVegetarianMenu();
     }
 }

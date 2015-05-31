@@ -18,7 +18,7 @@ public class DinerMenu {
 	private void addItem(String name, String desc, boolean vegetarian, double price) {
 		MenuItem menuItem = new MenuItem(name, desc, vegetarian, price);
 		
-		if(numberOfItmes > MAX_ITMES){
+		if(numberOfItmes >= MAX_ITMES){
 			System.out.println("죄송합니다. 메뉴가 꽉 찼습니다. 더 이상 추가할 수 없습니다.");
 		}else{
 			menuItems[numberOfItmes] = menuItem;
@@ -26,8 +26,8 @@ public class DinerMenu {
 		}
 	}
 
-	public MenuItem[] getMenuItems() {
-		return menuItems;
+	public Iterator createIterator() {
+		return new DinerMenuIterator(menuItems);
 	}
 	
 }
