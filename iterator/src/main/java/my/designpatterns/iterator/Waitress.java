@@ -1,12 +1,13 @@
 package my.designpatterns.iterator;
 
+import java.util.Iterator;
 
 public class Waitress {
-	private PancakeHouseMenu breakfastMenu;
-	private DinerMenu dinerMenu;
+	private Menu breakfastMenu;
+	private Menu dinerMenu;
 	private boolean vegetrian;
 	
-	public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu,
+	public Waitress(Menu pancakeHouseMenu, Menu dinerMenu,
 			boolean vegetrian) {
 		super();
 		this.breakfastMenu = pancakeHouseMenu;

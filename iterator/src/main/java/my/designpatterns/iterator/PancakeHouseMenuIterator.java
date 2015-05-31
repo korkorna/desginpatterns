@@ -2,6 +2,7 @@ package my.designpatterns.iterator;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class PancakeHouseMenuIterator implements Iterator{
 	private ArrayList<MenuItem> menuItems;
 	private int position = 0;

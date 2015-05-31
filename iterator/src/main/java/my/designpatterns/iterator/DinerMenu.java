@@ -1,6 +1,8 @@
 package my.designpatterns.iterator;
 
-public class DinerMenu {
+import java.util.Iterator;
+
+public class DinerMenu implements Menu{
 	private static final int MAX_ITMES = 6;
 	private MenuItem[] menuItems;
 	private int numberOfItmes = 0;
